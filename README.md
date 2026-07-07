@@ -18,7 +18,7 @@ Concrete strength depends on several ingredients (cement, water, aggregates, etc
 
 ## Model Architecture
 
-A simple deep MLP (`DeeperConcreteMLP`):
+A simple deep MLP (`ConcreteMLP`):
 
 ```
 Input (8) → Linear(8, 16) → ReLU
