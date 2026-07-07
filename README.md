@@ -21,8 +21,7 @@ Concrete strength depends on several ingredients (cement, water, aggregates, etc
 A simple deep MLP (`DeeperConcreteMLP`):
 
 ```
-Input (8) → Linear(8, 32) → ReLU
-          → Linear(32, 16) → ReLU
+Input (8) → Linear(8, 16) → ReLU
           → Linear(16, 1)
 ```
 
