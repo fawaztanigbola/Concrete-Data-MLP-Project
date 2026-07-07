@@ -36,27 +36,23 @@ y_test = y_tens[test]
 
 # ----------Data Preparation step is done --------------#
 
-class DeeperConcreteMLP(nn.Module):
-    def __init__(self):
-        super(DeeperConcreteMLP,self).__init__()
-
-        self.fc1 = nn.Linear(8,32)
-        self.relu1 = nn.ReLU()
-        self.fc2 = nn.Linear(32, 16)
-        self.relu2 = nn.ReLU()
-        self.fc3 = nn.Linear(16, 1)
-
+class ConcreteMLP(nn.Module):
+    def __init__(self, input_size=8, hidden_size=16, output_size=1):
+        super(ConcreteMLP, self).__init__()
+        
+        self.fc1 = nn.Linear(input_size, hidden_size)  # First hidden layer
+        self.relu = nn.ReLU()                          # Activation
+        self.fc2 = nn.Linear(hidden_size, output_size) # Output layer
+    
     def forward(self, x):
-        x = self.fc1(x)
-        x = self.relu1(x)
-        x = self.fc2(x)
-        x = self.relu2(x)
-        x = self.fc3(x)
+        x = self.fc1(x)   # Apply first linear layer
+        x = self.relu(x)  # Apply ReLU activation
+        x = self.fc2(x)   # Apply output layer
         return x
 
 # Custom Model has been defined 
 
-model = DeeperConcreteMLP()
+model = ConcreteMLP()
 
 #  setup loss and optimizer- carries the learning rate and model parameters as an argument
 loss_fn = nn.MSELoss()
